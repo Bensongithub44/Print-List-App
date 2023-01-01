@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Simple list</title>
+  <link rel="icon" href="list-icon.jpg">
+ <style>
+
+.styleforbutton {
+  width:100px;
+  height:40px;
+  
+}
+
+
+.todo-title {
+  width:400px;
+}
+
+.todo-list {
+  background-color:red;
+  
+ 
+}
+
+.print-button {
+  height:40px;
+  width:300px;
+  background-color:rgb(56, 176, 132);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight:bold;
+  border-color:red;
+  margin-top:200px;
+  text-align: center;
+
+}
+
+.print-button:hover {
+  background-color: white;
+  color: black;
+ 
+}
+
+.print-button:active {
+  opacity:.7;
+  color: black;
+  font-size: larger;
+}
+
+.email-button {
+  height:40px;
+  width:300px;
+  background-color:rgb(56, 176, 132);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight:bold;
+  border-color:red;
+  margin-top:200px;
+  text-align: center;
+
+}
+
+
+
+
+ </style>
+
+</head>
+
+<body style="background-color:black;">
+  <input class="todo-title" id="todo-title" type="text" style="display: block; margin: auto;"></input>
+  <button class="styleforbutton"
+   onclick="addTodo()" 
+   style=
+   "display: block; margin: auto;
+    background-color:aqua;
+    border-radius:20px;
+    width:200px;
+    border: 5px solid rgb(169, 101, 101);
+    ">Add Todo</button>
+
+  <div class="todo-list" id="todo-list" style="text-align: center;"></div>
+  <button class="print-button" onclick="window.print()">Print List</button>
+
+
+    
+  </a>
+
+  <script>
+    let todos = [];
+    render();
+
+    function addTodo() {
+      let textbox = document.getElementById('todo-title');
+      let title = textbox.value;
+      todos.push(title);
+
+      render();
+    }
+
+    function render() {
+      let todoList = document.getElementById('todo-list');
+      todoList.innerHTML = '';
+
+      todos.forEach(function(todoTitle) {
+        let element = document.createElement('div');
+        element.innerText = todoTitle;
+        todoList.appendChild(element);
+      });
+    }
+
+   
+
+
+
+   
+  </script>
+</body>
+</html>
